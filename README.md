@@ -1,39 +1,41 @@
-# Employee Map Dashboard application
+# Employee Map Dashboard Backend
 
-## Tools
-* IDE https://www.jetbrains.com/idea/
-* Docker https://www.docker.com/products/docker-desktop/
-* Git https://git-scm.com/downloads
-* Postman https://www.postman.com/
+This is the backend service for the Employee Map Dashboard application, built with **Spring Boot**. It serves as the core system to manage employee information, including their addresses, and provides functionality for employees to communicate with each other via email. It also integrates with a frontend React application for a seamless user experience.
 
-#### Java
+## Features
 
-- Java 17 (Windows)
-    - Java 17 JDK download: [https://adoptium.net/](https://adoptium.net/)
-    - Environment variables needed (Windows)
-        - “JAVA_HOME” - https://confluence.atlassian.com/doc/setting-the-java_home-variable-in-windows-8895.html
-        - "Path" – add path to your JDK bin file (e.g. C:\Program Files\Eclipse Adoptium\jdk-17.0.4.101-hotspot\bin)
-- Java 17 (MacOS)
-    - JAVA 17 JDK download: console command: "brew install --cask temurin"
-    - Environment variables applying
-        - e.g. export JAVA_HOME=`/usr/libexec/java_home -v 17`
+- **Employee Management**  
+  The application allows for storing and managing employee information, such as personal details and addresses.
+  
+- **Email Communication**  
+  Employees can send emails to one another through the system, making internal communication easy and accessible.
 
-# Database
+- **Location Mapping**  
+  Employee addresses are stored in the database and can be visualized on the frontend map.
 
-```bash
-# launch and init empty db
-docker-compose up -d
-```
+- **User Authentication and Authorization**  
+  Implemented security features, including user login, ensure that only authenticated employees can access the application. Each employee can log in, view their dashboard, and send emails to other employees.
 
-```bash
-# recreate db / cleanup
-docker-compose down -v && docker-compose up -d
-```
+- **Frontend Integration**  
+  The backend communicates with a React-based frontend, which displays employee information and their location on a map.
 
-## Starting service
+## Technology Stack
 
-Run directly via IDEA (Shift + F10) or
+### Backend (Spring Boot)
 
-```bash
-./gradlew bootRun
-```
+- **Spring Boot**: The core framework used for building the backend RESTful services.
+- **MyBatis**: For mapping database records to Java objects and performing SQL queries in a type-safe manner.
+- **PostgreSQL**: The primary database for storing employee data.
+- **Flyway**: Database versioning and migration tool used to manage and apply schema changes.
+- **Docker**: Containerization technology used to ensure a consistent deployment environment.
+- **Spring Security**: Provides authentication and authorization mechanisms for user management.
+
+## Infrastructure Setup
+
+The entire infrastructure, including the backend, PostgreSQL database, and the frontend, is containerized and orchestrated using **Docker** and **Docker Compose**. This allows for easy deployment and scaling of the application.
+
+## Testing
+
+- **Unit Tests**: Unit tests are implemented to ensure the core logic of the application functions as expected.
+- **Integration Tests**: Integration tests are provided to verify that different parts of the system work together correctly, especially in terms of database interactions and API functionality.
+
