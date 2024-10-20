@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://${POSTGRES_HOST:localhost}:${POSTGRES_PORT:5433}/${POSTGRES_DB:postgres}?currentSchema=app
+    username: ${POSTGRES_USER:dbuser}
+    password: ${POSTGRES_PASSWORD:pass}
+    driver-class-name: org.postgresql.Driver
+  flyway:
+    locations: classpath:db/migration
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: find.me.map1@gmail.com
+    password: zewjauivwubfcbfl
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+mybatis:
+  type-handlers-package: com.employeedashboard.oirs.config.mybatis
+  type-aliases-package: com.sourcery.oirs.config.mybatis
+  configuration:
+    map-underscore-to-camel-case: true
+
+jwt:
+  token:
+    secret: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970

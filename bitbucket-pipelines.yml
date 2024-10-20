@@ -1,0 +1,11 @@
+image: amazoncorretto:17
+
+pipelines:
+  pull-requests:
+    "**":
+      - step:
+          name: Build and Test
+          caches:
+            - gradle
+          script:
+            - bash ./gradlew build -x test

@@ -1,0 +1,16 @@
+version: '3.5'
+
+services:
+  db:
+    container_name: database
+    image: postgres:15.3-alpine
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - "./pg-init.sql:/docker-entrypoint-initdb.d/master_db_init.sql"
+    environment:
+      - POSTGRES_PASSWORD=pass
+    ports:
+      - "5433:5432"
+
+volumes:
+  pgdata:
